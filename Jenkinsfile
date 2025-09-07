@@ -27,9 +27,9 @@ pipeline {
     }
     stage('Deploy to Kubernetes') {
       steps {
-        sh 'kubectl apply -f k8s/manifest/deployment.yaml'
-        sh 'kubectl apply -f k8s/manifest/service.yaml'
-        sh 'kubectl rollout restart deployment/medicure-deployment'
+          sh 'sudo k3s kubectl apply -f k8s/manifest/deployment.yaml'
+          sh 'sudo k3s kubectl apply -f k8s/manifest/service.yaml'
+          sh 'sudo k3s kubectl rollout restart deployment/medicure-deployment''
       }
     }
   }
