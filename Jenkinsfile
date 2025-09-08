@@ -32,6 +32,11 @@ pipeline {
           sh 'sudo k3s kubectl rollout restart deployment/medicure-deployment'
       }
     }
+    stage('Deploy Node Exporter') {
+      steps {
+          sh 'sudo k3s kubectl apply -f k8s/manifest/node-exporter-daemonset.yaml'
+      }
+    }
   }
 }   
   
