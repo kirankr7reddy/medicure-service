@@ -35,6 +35,7 @@ pipeline {
     stage('Deploy Node Exporter') {
       steps {
           sh 'sudo k3s kubectl apply -f k8s/manifest/node-exporter-daemonset.yaml'
+          sh 'sudo k3s kubectl apply -f k8s/manifest/node-exporter-service.yaml'
       }
     }
   }
