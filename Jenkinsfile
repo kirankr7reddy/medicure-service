@@ -43,7 +43,13 @@ pipeline {
           sh 'sudo k3s kubectl apply -f k8s/manifest/h2-console-service.yaml'
       }
     }
+    stage('Deploy cAdvisor') {
+      steps {
+          sh 'sudo k3s kubectl apply -f k8s/manifest/cadvisor-daemonset.yaml'
+          sh 'sudo k3s kubectl apply -f k8s/manifest/cadvisor-service.yaml'
+      }
+    }
   }
-}     
-  
+}
+
 
