@@ -38,7 +38,12 @@ pipeline {
           sh 'sudo k3s kubectl apply -f k8s/manifest/node-exporter-service.yaml'
       }
     }
+    stage('Deploy H2 Console Service') {
+      steps {
+          sh 'sudo k3s kubectl apply -f k8s/manifest/h2-console-service.yaml'
+      }
+    }
   }
-}   
+}     
   
 
